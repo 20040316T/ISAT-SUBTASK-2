@@ -66,3 +66,27 @@ int hexadecimalToDecimal(string hex) {
     }
     return decimal;
 }
+// This is the main menu that the user sees
+// I made it clean and easy to followâ€”no confusion about what to do
+void showMenu() {
+    cout << "\n Number System Converter \n";
+    cout << "1. Convert Decimal to Binary\n";
+    cout << "2. Convert Binary to Decimal\n";
+    cout << "3. Convert Decimal to Hexadecimal\n";
+    cout << "4. Convert Hexadecimal to Decimal\n";
+    cout << "5. Demo (Random Decimal to Binary)\n";
+    cout << "6. Exit\n";
+    cout << "Choose an option (1-6): ";
+}
+
+
+// Then shows how it looks in binary. 
+void runDemo() {
+    srand(time(0));  // Seed the random number generator
+    int randomNum = rand() % 100;  // Random number between 0 and 99
+    string binary = decimalToBinary(randomNum);
+    cout << "\n--- DEMO MODE ---\n";
+    cout << "Random Decimal: " << randomNum << endl;
+    cout << "Binary Equivalent: " << binary << endl;
+    
+}
