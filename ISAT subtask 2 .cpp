@@ -32,3 +32,16 @@ int binaryToDecimal(string binary) {
     }
     return decimal;
 }
+// Function 3: Convert Decimal to Hexadecimal
+// Same idea as binary, but now we divide by 16
+// Numbers 10-15 become A-F, so I used a lookup string to make it simple
+string decimalToHexadecimal(int decimal) {
+    if (decimal == 0) return "0";
+    string hex = "";
+    string hexDigits = "0123456789ABCDEF";  // Easy way to map 10-15 to A-F
+    while (decimal > 0) {
+        hex = hexDigits[decimal % 16] + hex;  // Get the right hex digit
+        decimal /= 16;
+    }
+    return hex;
+}
