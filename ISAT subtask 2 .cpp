@@ -90,3 +90,54 @@ void runDemo() {
     cout << "Binary Equivalent: " << binary << endl;
     
 }
+// Main function â€“ the heart of the program
+// Everything starts and runs from here
+int main() {
+    int choice;
+    do {
+        showMenu();
+        cin >> choice;
+
+        // I used a switch statement because it's cleaner than a bunch of if-else lines
+        switch (choice) {
+            case 1: {
+                int num;
+                cout << "Enter a decimal number: ";
+                cin >> num;
+                cout << "Binary: " << decimalToBinary(num) << endl;
+                break;
+            }
+            case 2: {
+                string bin;
+                cout << "Enter a binary string (e.g., 1010): ";
+                cin >> bin;
+                cout << "Decimal: " << binaryToDecimal(bin) << endl;
+                break;
+            }
+            case 3: {
+                int num;
+                cout << "Enter a decimal number: ";
+                cin >> num;
+                cout << "Hexadecimal: " << decimalToHexadecimal(num) << endl;
+                break;
+            }
+            case 4: {
+                string hex;
+                cout << "Enter a hexadecimal string (e.g., A1F): ";
+                cin >> hex;
+                cout << "Decimal: " << hexadecimalToDecimal(hex) << endl;
+                break;
+            }
+            case 5:
+                runDemo();
+                break;
+            case 6:
+                cout << "Goodbye!\n";
+                break;
+            default:
+                cout << "Invalid choice. Please pick 1 to 6.\n";
+        }
+    } while (choice != 6);  // Keep going until user chooses Exit
+
+    return 0;
+}
