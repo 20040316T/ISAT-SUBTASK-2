@@ -45,3 +45,24 @@ string decimalToHexadecimal(int decimal) {
     }
     return hex;
 }
+// Function 4: Convert Hexadecimal to Decimal
+// Go through each character in the hex string
+// Convert each digit to its decimal value and multiply by the right power of 16
+int hexadecimalToDecimal(string hex) {
+    int decimal = 0;
+    int power = 1;  // Start with 16^0
+    // Start from the last character
+    for (int i = hex.length() - 1; i >= 0; i--) {
+        char c = toupper(hex[i]);  // Make sure it's uppercase
+        int digitValue = 0;
+        // Convert character to number: 0-9 or A-F
+        if (c >= '0' && c <= '9') {
+            digitValue = c - '0';
+        } else if (c >= 'A' && c <= 'F') {
+            digitValue = c - 'A' + 10;
+        }
+        decimal += digitValue * power;
+        power *= 16;  // Next power of 16
+    }
+    return decimal;
+}
