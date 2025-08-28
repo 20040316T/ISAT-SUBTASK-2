@@ -17,3 +17,18 @@ string decimalToBinary(int decimal) {
     return binary;
 }
 
+// Function 2: Convert Binary to Decimal
+// Here, I go through each digit in the string, from left to right
+// Each digit is multiplied by the correct power of 2 based on its position
+int binaryToDecimal(string binary) {
+    int decimal = 0;
+    int power = 1;  // This will be 2^0, 2^1, 2^2, etc.
+    // Start from the last character (least significant bit)
+    for (int i = binary.length() - 1; i >= 0; i--) {
+        if (binary[i] == '1') {
+            decimal += power;  // Add the value if the bit is 1
+        }
+        power *= 2;  // Double the power for the next digit (2^1, 2^2, etc.)
+    }
+    return decimal;
+}
